@@ -39,11 +39,11 @@ class Order(models.Model):
     order_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{customer.user.username}'s order" 
+        return f"{self.customer.user.username}'s order" 
     
 class OrderItems(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="order_items")
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"order of {product} by {order.customer.user.username}"
+        return f"order of {self.product} by {self.order.customer.user.username}"

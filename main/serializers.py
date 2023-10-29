@@ -28,3 +28,44 @@ class ProductCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = models.ProductCategory
         fields = "__all__"
+
+class CustomerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Customer 
+        fields = "__all__"
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Order 
+        fields = "__all__" 
+    
+    # Access the customer through the related Order
+    # customer = serializers.SerializerMethodField()
+
+    # def get_customer(self, obj):
+    #     return obj.order.customer.user.username
+
+class OrderItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.OrderItems 
+        fields = "__all__"
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
