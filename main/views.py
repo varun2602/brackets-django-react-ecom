@@ -93,8 +93,34 @@ class OrderItemDetails(generics.RetrieveUpdateDestroyAPIView):
     pagination_class = CustomPagination
     
 
-# Continue from 11th video 
+# Customer Address CRUD
+class CustomerAddressModelList(generics.ListCreateAPIView):
+    queryset = models.CustomerAddressModel.objects.all()
+    serializer_class = serializers.CustomerAddressModelSerializer 
+    authentication_classes = [JWTAuthentication]
+    pagination_class = CustomPagination 
 
+class CustomerAddrressModelDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.CustomerAddressModel.objects.all()
+    serializer_class = serializers.CustomerAddressModelSerializer
+    authentication_classes = [JWTAuthentication]
+    pagination_class = CustomPagination 
+
+
+# Product Rating CRUD 
+class ProductRatingsList(generics.ListCreateAPIView):
+    queryset = models.ProductRating.objects.all()
+    serializer_class = serializers.ProductRatingSerializer 
+    authentication_classes = [JWTAuthentication]
+    pagination_class = CustomPagination 
+
+class ProductRatingsDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.ProductRating.objects.all()
+    serializer_class = serializers.ProductRatingSerializer 
+    authentication_classes = [JWTAuthentication]
+    pagination_class = CustomPagination
+
+# Continue from12th video, 12th minute 
 
 
 

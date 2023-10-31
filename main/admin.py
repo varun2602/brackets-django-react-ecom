@@ -26,6 +26,14 @@ class OrderAdmin(admin.ModelAdmin):
 class OrderItemsAdmin(admin.ModelAdmin):
     list_display = ["id", "order", "product"]
 
+@admin.register(models.CustomerAddressModel)
+class CustomerAddressAdmin(admin.ModelAdmin):
+    list_display = ["id", "customer", "address"]
+
+@admin.display(models.ProductRating)
+class ProductRatingAdmin(admin.ModelAdmin):
+    list_display = ["id", "customer", "product", "rating", "reviews", "add_time"]
+
 
 # @admin.register(Session)
 # class SessionAdmin(admin.ModelAdmin):

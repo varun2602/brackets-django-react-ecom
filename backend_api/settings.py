@@ -144,5 +144,5 @@ REST_FRAMEWORK = {
         'main.pagination.CustomPagination'
     ],
     
-    'PAGE_SIZE':1
+    'PAGE_SIZE':10
 }

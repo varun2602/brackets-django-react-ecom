@@ -20,6 +20,7 @@ class VendorDetailSerializer(serializers.ModelSerializer):
     #     self.Meta.depth = 1
 
 class ProductSerializer(serializers.ModelSerializer):
+    product_ratings = serializers.StringRelatedField(many = True, read_only = True)
     class Meta:
         model = models.Products 
         fields = "__all__"
@@ -50,6 +51,19 @@ class OrderItemSerializer(serializers.ModelSerializer):
         model = models.OrderItems 
         fields = "__all__"
 
+class CustomerAddressModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.CustomerAddressModel 
+        fields = "__all__"
+
+class ProductRatingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ProductRating 
+        fields = "__all__" 
+
+    def __init__(self, *args, **kwargs):
+        super(ProductRatingSerializer, self).__init__(*args, **kwargs)
+        self.Meta.depth = 1
     
     
 

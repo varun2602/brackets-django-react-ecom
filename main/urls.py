@@ -13,5 +13,9 @@ urlpatterns = [
     path("/order-list", views.OrderList.as_view()),
     path("/order-details/<int:pk>", views.OrderDetails.as_view()),
     path("/order-item-list", views.OrderItemList.as_view()),
-    path("/order-item-details/<int:pk>", views.OrderItemDetails.as_view())
+    path("/order-item-details/<int:pk>", views.OrderItemDetails.as_view()),
+    path("/customer-address-list", views.CustomerAddressModelList.as_view),
+    path("/customer-address-details/<int:pk>", views.CustomerAddrressModelDetails.as_view()),
+    path("/product-ratings-list", views.ProductRatingsList.as_view()),
+    path("/product-ratings-details", views.ProductRatingsDetails.as_view())
 ]

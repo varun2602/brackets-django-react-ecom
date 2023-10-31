@@ -47,3 +47,20 @@ class OrderItems(models.Model):
 
     def __str__(self):
         return f"order of {self.product} by {self.order.customer.user.username}"
+    
+class CustomerAddressModel(models.Model):
+    customer = models.ForeignKey(Customer, on_delete= models.CASCADE, related_name= "customer_addresses")
+    address = models.TextField(blank = True, null = True, max_length = 200)
+
+    def __str__(self):
+        return f"Address of {self.customer.user.username}"
+    
+class ProductRating(models.Model):
+    customer = models.ForeignKey(Customer, on_delete= models.CASCADE, related_name= "rating_customers")
+    product = models.ForeignKey(Products, on_delete= models.CASCADE, related_name="product_ratings")
+    rating = models.IntegerField()
+    reviews = models.TextField(blank = True, null = True, max_length = 500)
+    add_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Reviews for {self.product.title} by {self.customer.user.username}"
